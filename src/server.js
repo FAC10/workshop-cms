@@ -1,5 +1,6 @@
 var http = require("http");
 var fs = require("fs");
+var querystring = require("querystring");
 
 var message = 'I am watching you';
 
@@ -8,6 +9,7 @@ function handler (request, response){
 
   var endpoint = request.url;
   console.log(endpoint);
+
 
   if (endpoint === "/"){
     response.writeHead(200, {'Content-Type': 'text/html'});
@@ -20,6 +22,19 @@ function handler (request, response){
     })
   }
 
+  else if(endpoint === "/create-post"){
+    var allTheData = "";
+    request.on('data', function(chunkOfData){
+      allTheData += chunkOfData;
+    });
+
+    request.on("end", function(){
+      var convertedData = querystring.parse(allTheData);
+      console.log(convertedData);
+      response.writeHead(302, {"Location": "/"});
+      response.end();
+    })
+  }
   else {
     var extension = endpoint.split('.')[1];
     var extensionType = {
@@ -42,8 +57,8 @@ function handler (request, response){
     });
   }
 
-
 }
+
 
 var server = http.createServer(handler);
 
