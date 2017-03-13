@@ -1,0 +1,19 @@
+{
+  "name": "workshop-cms",
+  "version": "1.0.0",
+  "description": "Node workshop",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvonne-liu/workshop-cms.git"
+  },
+  "author": "Zooey and Yvonne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yvonne-liu/workshop-cms/issues"
+  },
+  "homepage": "https://github.com/yvonne-liu/workshop-cms#readme"
+}
